@@ -8,6 +8,7 @@ interface InjectableDependencies {
 declare function factory(dependencies?: Partial<InjectableDependencies>): {
     getState: () => State;
     stop: () => boolean;
+    getTrafficLightStateForFlow: (flow: "NS" | "EW") => "red" | "yellow" | "green";
 };
 declare function getTrafficLightStateForFlow(state: State, flow: TrafficFlow): TrafficLightState;
 export { TrafficFlow, TrafficLightState, State, InjectableDependencies, factory, getTrafficLightStateForFlow };

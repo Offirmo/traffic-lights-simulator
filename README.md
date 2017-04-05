@@ -55,8 +55,12 @@ It can be stopped with `controller.stop()`
 
 To retrieve how the lights should be displayed for a flow according to a state:
 ```javascript
-TrafficLightsController.getTrafficLightStateForFlow(controller.state, 'NS') // -> red, yellow, green
-TrafficLightsController.getTrafficLightStateForFlow(controller.state, 'EW') // -> red, yellow, green
+TrafficLightsController.getTrafficLightStateForFlow(controller.getState(), 'NS') // -> red, yellow, green
+TrafficLightsController.getTrafficLightStateForFlow(controller.getState(), 'EW') // -> red, yellow, green
+
+// or use this shortcut
+controller.getTrafficLightStateForFlow('NS') // -> red, yellow, green
+controller.getTrafficLightStateForFlow('EW') // -> red, yellow, green
 ```
 
 

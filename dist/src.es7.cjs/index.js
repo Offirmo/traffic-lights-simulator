@@ -50,6 +50,7 @@ function factory(dependencies = {}) {
     return {
         getState: () => state,
         stop: () => stopFlag = true,
+        getTrafficLightStateForFlow: (flow) => getTrafficLightStateForFlow(state, flow),
     };
 }
 exports.factory = factory;

@@ -56,6 +56,7 @@ function factory(dependencies: Partial<InjectableDependencies> = {}) {
 	return {
 		getState: (): State => state,
 		stop: () => stopFlag = true,
+		getTrafficLightStateForFlow: (flow: TrafficFlow) => getTrafficLightStateForFlow(state, flow),
 	}
 }
 
