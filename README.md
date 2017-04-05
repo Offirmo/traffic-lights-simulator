@@ -39,16 +39,17 @@ proceeding and stopping alternatively.
 Code is written in TypeScript 2 / ES7 and exposed as JavaScript ES7 / CommonJS
 
 ```bash
-npm i -S @offirmo/traffic-lights-controller
+npm i -S Offirmo/traffic-lights-simulator   << XXX I didn't publish it to npm to not waste their resources
 ```
 
 ```javascript
-import * as TrafficLightsController from ' @offirmo/traffic-lights-controller'
+import * as TrafficLightsController from 'traffic-lights-simulator'
 
 const controller = TrafficLightsController.factory({
    onStateChange: console.log
 })
 ```
+
 The controller immediately starts running indefinitely on invocation, starting with N<->S green.
 It can be stopped with `controller.stop()`
 
