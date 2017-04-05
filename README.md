@@ -78,6 +78,7 @@ Should give something like that:
 
 
 ## Contributing
+From the cloned repository, using node 7:
 
 ```bash
 npm install  (do NOT use yarn, sorry)
