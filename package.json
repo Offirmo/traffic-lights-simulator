@@ -1,0 +1,26 @@
+{
+  "name": "traffic-lights-simulator",
+  "version": "0.0.1",
+  "description": "A design exercise of simulating traffic lights",
+  "main": "dist/src.es7.cjs/index.js",
+  "repository": "git@offirmo.github.com:Offirmo/traffic-lights-simulator.git",
+  "author": "Offirmo <offirmo.net@gmail.com>",
+  "license": "UNLICENSED",
+  "scripts": {
+    "test": "mocha --opts node_modules/@offirmo/unit-test-toolbox/mocha.opts node_modules/@offirmo/unit-test-toolbox/mocha-chai-init-node.js 'dist/src.es7.cjs/*_spec.js'",
+    "build": "tsc",
+    "dev": "npm run build -- --watch",
+    "simulate": "node dist/src.es7.cjs/simulator.js"
+  },
+  "devDependencies": {
+    "@offirmo/unit-test-toolbox": "^1.0.0",
+    "@types/chalk": "^0.4.31",
+    "@types/meow": "^3.6.2",
+    "typescript": "^2.2.2"
+  },
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "meow": "^3.7.0",
+    "typescript-string-enums": "^0.3.1"
+  }
+}
