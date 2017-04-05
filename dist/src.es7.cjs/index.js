@@ -19,6 +19,7 @@ function factory(dependencies = {}) {
     // very crude state machine, this is not the point of the test
     function next() {
         if (!state.proceedingTrafficFlow) {
+            // init
             state.proceedingTrafficFlow = types_1.TrafficFlow.NS;
             if (debug)
                 console.log('Starting with', state.proceedingTrafficFlow);
@@ -41,7 +42,7 @@ function factory(dependencies = {}) {
         }
         state.isChangeImminent = true;
         if (debug)
-            console.log('yellow');
+            console.log(`${state.proceedingTrafficFlow} switching to yellow`);
         if (!stopFlag)
             setTimeout(next, SWITCH_NOTIFICATION_DURATION_S * 1000);
         onStateChange(state);

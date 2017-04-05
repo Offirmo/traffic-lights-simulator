@@ -27,6 +27,7 @@ function factory(dependencies: Partial<InjectableDependencies> = {}) {
 	// very crude state machine, this is not the point of the test
 	function next(): void {
 		if (!state.proceedingTrafficFlow) {
+			// init
 			state.proceedingTrafficFlow = TrafficFlow.NS
 			if (debug) console.log('Starting with', state.proceedingTrafficFlow)
 			if (!stopFlag) setTimeout(next, (SWITCH_PERIOD_S - SWITCH_NOTIFICATION_DURATION_S) * 1000)
@@ -46,7 +47,7 @@ function factory(dependencies: Partial<InjectableDependencies> = {}) {
 		}
 
 		state.isChangeImminent = true
-		if (debug) console.log('yellow')
+		if (debug) console.log(`${state.proceedingTrafficFlow} switching to yellow`)
 		if (!stopFlag) setTimeout(next, SWITCH_NOTIFICATION_DURATION_S * 1000)
 		onStateChange(state)
 	}
