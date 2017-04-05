@@ -63,6 +63,29 @@ controller.getTrafficLightStateForFlow('NS') // -> red, yellow, green
 controller.getTrafficLightStateForFlow('EW') // -> red, yellow, green
 ```
 
+But this is more convenient to do it on transitions, hence the `onStateChange` callback:
+```javascript
+import * as TrafficLightsController from 'traffic-lights-simulator'
+
+const controller = TrafficLightsController.factory({
+   onStateChange: (state) => {
+      changeNSLightTo(TrafficLightsController.getTrafficLightStateForFlow(controller.getState(), 'NS'))
+      ...
+   }
+})
+```
+
+The factory takes a bunch of options:
+```javascript
+
+const controller = TrafficLightsController.factory({
+   // here are the default values
+   SWITCH_PERIOD_S: 5 * 60,  // lights alternance period, in s
+   SWITCH_NOTIFICATION_DURATION_S: 30,  // how much time before a change do we switch to yellow
+   debug: false,  // prints traces on state change
+   onStateChange: (state) => {} // called on state change
+})
+```
 
 ### Simulator
 From the cloned repository, using node 7:
